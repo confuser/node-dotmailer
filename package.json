@@ -1,11 +1,12 @@
 {
   "name": "dotmailer",
-  "description": "A dotMailer v2 REST API interface",
+  "description": "A 3rd party dotMailer v2 REST API implementation",
   "version": "0.0.1",
-  "dependencies": {
-    "lodash.assign": "^2.4.1",
-    "request": "^2.36.0"
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
   },
+  "author": "James Mortemore <jamesmortemore@gmail.com>",
+  "license": "ISC",
   "scripts": {
     "lint": "./node_modules/.bin/jshint .",
     "checkStyle": "./node_modules/.bin/jscs .",
@@ -14,11 +15,23 @@
     "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage",
     "prepublish": "npm test && npm prune"
   },
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:confuser/node-dotmailer.git"
   },
-  "author": "James Mortemore <jamesmortemore@gmail.com>",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/confuser/node-dotmailer/issues"
+  },
+  "keywords": [
+    "dotmailer",
+    "api",
+    "v2",
+    "rest"
+  ],
+  "dependencies": {
+    "lodash.assign": "^2.4.1",
+    "request": "^2.36.0"
+  },
   "devDependencies": {
     "mocha": "^1.18.2",
     "istanbul": "^0.2.7",
@@ -26,9 +39,5 @@
     "jscs": "^1.4.5",
     "should": "^4.0.0",
     "nock": "^0.32.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:confuser/dotmailer.git"
   }
 }
