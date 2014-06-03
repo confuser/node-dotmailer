@@ -49,7 +49,7 @@ This test will create, update & delete an address book named 'Test Address Book'
 
 To run:
 ```
-USER=username@apiconnector.com PASS=pass test/integration/dotmailer.integration.test.js
+USER=username@apiconnector.com PASS=pass mocha test/integration/dotmailer.integration.test.js
 ```
 
 ## Credits
