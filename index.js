@@ -17,7 +17,13 @@ module.exports = function (options) {
     if (typeof cb !== 'function') throw new Error('Invalid callback, must be a function')
     if (!endPoints[endpoint]) throw new Error('Unknown API endpoint')
 
-    var preparedRequest = extend({}, options, endPoints[endpoint].apply(null, args))
+    var preparedRequest
+
+    try {
+      preparedRequest = extend({}, options, endPoints[endpoint].apply(null, args))
+    } catch (e) {
+      return cb(e)
+    }
 
     preparedRequest.url = 'https://api.dotmailer.com/v2/' + preparedRequest.url
 

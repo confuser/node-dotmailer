@@ -22,4 +22,14 @@ describe('dotmailer', function () {
     })
   })
 
+  it('should return an error if required tokens not passed', function (done) {
+    dotMailer('PostContactsTransactionalData', function (error) {
+      should.exist(error)
+
+      error.message.should.equal('Unreplaced tokens')
+
+      done()
+    })
+  })
+
 })
