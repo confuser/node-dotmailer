@@ -1,6 +1,6 @@
 # dotMailer
 
-[![build status](https://secure.travis-ci.org/confuser/dotmailer.png)](http://travis-ci.org/confuser/node-dotmailer)
+[![build status](https://secure.travis-ci.org/confuser/node-dotmailer.png)](http://travis-ci.org/confuser/node-dotmailer)
 
 A 3rd party dotMailer v2 REST API implementation
 
