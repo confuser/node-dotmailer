@@ -37,7 +37,7 @@ describe('Handle Request', function () {
   it('should return an error if a bad request', function (done) {
     var cb = function (error) {
       should.exist(error)
-      error.should.equal('test')
+      error.message.should.equal('test')
 
       done()
     }
