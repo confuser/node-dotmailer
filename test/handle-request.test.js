@@ -33,4 +33,16 @@ describe('Handle Request', function () {
 
     handle(null, { body: {} })
   })
+
+  it('should return an error if a bad request', function (done) {
+    var cb = function (error) {
+      should.exist(error)
+      error.should.equal('test')
+
+      done()
+    }
+      , handle = handleRequest(cb)
+
+    handle(null, { statusCode: 400, body: { message: 'test' } })
+  })
 })
