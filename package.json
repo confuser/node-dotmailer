@@ -1,7 +1,7 @@
 {
   "name": "dotmailer",
   "description": "A 3rd party dotMailer v2 REST API implementation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
