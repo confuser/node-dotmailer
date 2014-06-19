@@ -3,8 +3,8 @@ var should = require('should')
     { auth:
       { user: process.env.USER, pass: process.env.PASS }
     }
-  , dotMailer = require('../')(config)
-  , fixtures = require('./fixtures')
+  , dotMailer = require('../../')(config)
+  , fixtures = require('../fixtures')
   , addressBookId
 
 describe('dotmailer', function () {
