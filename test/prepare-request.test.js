@@ -25,4 +25,10 @@ describe('Prepare Request', function () {
       e.message.should.equal('Unreplaced tokens')
     }
   })
+
+  it('should accept falsy tokens', function () {
+    var preparedReq = prepareRequest('GET', 'hello/{foo}/world', 0);
+
+    preparedReq.url.should.equal('hello/0/world');
+  })
 })
