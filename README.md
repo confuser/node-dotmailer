@@ -32,7 +32,7 @@ Full documentation for the dotMailer API can be found at http://api.dotmailer.co
 var config =
   { auth:
     { user: '', pass: '' }
-    uri: 'https://r1-api.dotmailer.com/v2/' // Account region endpoint
+    baseUrl: 'https://r1-api.dotmailer.com/v2/' // Account region endpoint
     // Any other 'request' options here
   }
   , dotmailer = require('dotmailer')(config)
