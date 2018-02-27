@@ -4,7 +4,7 @@ var extend = require('lodash.assign')
   , handleRequest = require('./lib/handle-request')
 
 module.exports = function (options) {
-  var defaultOptions = { json: true, timeout: 20000 , baseUrl: 'https://api.dotmailer.com/v2/'}
+  var defaultOptions = { json: true, timeout: 20000 , baseUrl: 'https://api.dotmailer.com/v2/' }
 
   options = extend({}, defaultOptions, options)
 
