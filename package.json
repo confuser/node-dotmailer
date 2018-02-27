@@ -31,7 +31,6 @@
   ],
   "dependencies": {
     "lodash.assign": "^2.4.1",
-    "pre-commit": "^1.2.2",
     "request": "^2.36.0"
   },
   "devDependencies": {
@@ -39,6 +38,7 @@
     "istanbul": "^0.2.7",
     "jshint": "^2.5.0",
     "jscs": "1.4.5",
+    "pre-commit": "^1.2.2",
     "should": "^4.0.0",
     "nock": "^0.32.3"
   }
