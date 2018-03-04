@@ -1,12 +1,11 @@
-const extend = require('lodash.assign')
 const request = require('request')
 const endPoints = require('./lib/end-points')
 const handleRequest = require('./lib/handle-request')
 
 module.exports = function (options) {
-  var defaultOptions = { json: true, timeout: 20000, baseUrl: 'https://api.dotmailer.com/v2/' }
+  const defaultOptions = { json: true, timeout: 20000, baseUrl: 'https://api.dotmailer.com/v2/' }
 
-  options = extend({}, defaultOptions, options)
+  options = Object.assign({}, defaultOptions, options)
 
   return send
 
@@ -17,10 +16,10 @@ module.exports = function (options) {
     if (typeof cb !== 'function') throw new Error('Invalid callback, must be a function')
     if (!endPoints[endpoint]) throw new Error('Unknown API endpoint')
 
-    var preparedRequest
+    let preparedRequest
 
     try {
-      preparedRequest = extend({}, options, endPoints[endpoint].apply(null, args))
+      preparedRequest = Object.assign({}, options, endPoints[endpoint].apply(null, args))
     } catch (e) {
       return cb(e)
     }

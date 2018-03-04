@@ -25,13 +25,12 @@
     "rest"
   ],
   "dependencies": {
-    "lodash.assign": "^2.4.1",
     "request": "^2.36.0"
   },
   "devDependencies": {
     "mocha": "^1.18.2",
     "nock": "^0.32.3",
-    "nyc": "^11.4.1",
+    "nyc": "^11.5.0",
     "standard": "^11.0.0"
   },
   "standard": {
