@@ -1,17 +1,16 @@
-var should = require('should')
-  , config =
+const should = require('should')
+const config =
     { auth:
       { user: process.env.USER, pass: process.env.PASS }
     }
-  , dotMailer = require('../../')(config)
-  , fixtures = require('../fixtures')
-  , addressBookId
+const dotMailer = require('../../')(config)
+const fixtures = require('../fixtures')
+let addressBookId
 
 describe('dotmailer', function () {
   this.timeout(5000)
 
   it('should create an address book', function (done) {
-
     dotMailer('PostAddressBooks', fixtures.validAddressBook, function (error, addressBook) {
       should.not.exist(error)
       should.exist(addressBook)
@@ -48,5 +47,4 @@ describe('dotmailer', function () {
       done()
     })
   })
-
 })
