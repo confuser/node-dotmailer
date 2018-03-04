@@ -1,4 +1,4 @@
-const should = require('should')
+const assert = require('assert')
 const config =
     { auth:
       { user: process.env.USER, pass: process.env.PASS }
@@ -12,11 +12,10 @@ describe('dotmailer', function () {
 
   it('should create an address book', function (done) {
     dotMailer('PostAddressBooks', fixtures.validAddressBook, function (error, addressBook) {
-      should.not.exist(error)
-      should.exist(addressBook)
+      assert.strictEqual(error, undefined)
 
-      addressBook.name.should.equal(fixtures.validAddressBook.Name)
-      addressBook.visibility.should.equal(fixtures.validAddressBook.Visibility)
+      assert.strictEqual(addressBook.name, fixtures.validAddressBook.Name)
+      assert.strictEqual(addressBook.visibility, fixtures.validAddressBook.Visibility)
 
       addressBookId = addressBook.id
 
@@ -29,11 +28,10 @@ describe('dotmailer', function () {
     addressBookFixture.Name = 'Testing Updating'
 
     dotMailer('UpdateAddressBook', addressBookId, addressBookFixture, function (error, addressBook) {
-      should.not.exist(error)
-      should.exist(addressBook)
+      assert.strictEqual(error, undefined)
 
-      addressBook.id.should.equal(addressBookId)
-      addressBook.name.should.equal(addressBookFixture.Name)
+      assert.strictEqual(addressBook.id, addressBookId)
+      assert.strictEqual(addressBook.name, addressBookFixture.Name)
 
       done()
     })
@@ -41,8 +39,8 @@ describe('dotmailer', function () {
 
   it('should delete an address book', function (done) {
     dotMailer('DeleteAddressBook', addressBookId, function (error, res) {
-      should.not.exist(error)
-      should.not.exist(res)
+      assert.strictEqual(error, undefined)
+      assert.strictEqual(res, undefined)
 
       done()
     })

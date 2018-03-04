@@ -1,4 +1,4 @@
-const should = require('should')
+const assert = require('assert')
 const handleRequest = require('../lib/handle-request')
 
 describe('Handle Request', function () {
@@ -11,8 +11,7 @@ describe('Handle Request', function () {
 
   it('should return an error if unauthorised', function (done) {
     const cb = function (error) {
-      should.exist(error)
-      error.message.should.equal('Unauthorised')
+      assert.strictEqual(error.message, 'Unauthorised')
 
       done()
     }
@@ -23,8 +22,9 @@ describe('Handle Request', function () {
 
   it('should return the body', function (done) {
     const cb = function (error, body) {
-      should.not.exist(error)
-      should.exist(body)
+      if (error) return done(error)
+
+      assert(body)
 
       done()
     }
@@ -35,8 +35,7 @@ describe('Handle Request', function () {
 
   it('should return an error if a bad request', function (done) {
     const cb = function (error) {
-      should.exist(error)
-      error.message.should.equal('test')
+      assert.strictEqual(error.message, 'test')
 
       done()
     }

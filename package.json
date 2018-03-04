@@ -32,10 +32,12 @@
     "mocha": "^1.18.2",
     "nock": "^0.32.3",
     "nyc": "^11.4.1",
-    "should": "^4.0.0",
     "standard": "^11.0.0"
   },
   "standard": {
-    "globals": [ "describe", "it" ]
+    "globals": [
+      "describe",
+      "it"
+    ]
   }
 }

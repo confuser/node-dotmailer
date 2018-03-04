@@ -1,5 +1,5 @@
 const nock = require('nock')
-const should = require('should')
+const assert = require('assert')
 const config =
   { auth:
     { user: '', pass: '' }
@@ -14,8 +14,8 @@ describe('dotmailer', function () {
       .reply(204)
 
     dotMailer('PostContactsTransactionalData', 123456, function (error, res) {
-      should.not.exist(error)
-      should.not.exist(res)
+      assert.strictEqual(error, undefined)
+      assert.strictEqual(res, undefined)
 
       done()
     })
@@ -23,9 +23,7 @@ describe('dotmailer', function () {
 
   it('should return an error if required tokens not passed', function (done) {
     dotMailer('PostContactsTransactionalData', function (error) {
-      should.exist(error)
-
-      error.message.should.equal('Unreplaced tokens')
+      assert.strictEqual(error.message, 'Unreplaced tokens')
 
       done()
     })
