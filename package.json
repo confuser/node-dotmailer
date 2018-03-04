@@ -8,8 +8,7 @@
   "author": "James Mortemore <jamesmortemore@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "test": "standard && nyc mocha",
-    "prepublish": "npm test && npm prune"
+    "test": "standard && nyc mocha"
   },
   "repository": {
     "type": "git",
