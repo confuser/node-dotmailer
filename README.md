@@ -1,6 +1,7 @@
 # dotMailer
 
 [![build status](https://secure.travis-ci.org/confuser/node-dotmailer.png)](http://travis-ci.org/confuser/node-dotmailer)
+[![Known Vulnerabilities](https://snyk.io/test/github/confuser/node-dotmailer/badge.svg?targetFile=package.json)](https://snyk.io/test/github/confuser/node-dotmailer?targetFile=package.json)
 
 A 3rd party dotMailer v2 REST API implementation
 
