@@ -13,7 +13,8 @@
     "pretest": "npm run-script lint && npm run-script checkStyle",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test",
     "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage",
-    "prepublish": "npm test && npm prune"
+    "prepublish": "npm test && npm prune",
+    "precommit": "npm run lint && npm run checkStyle && npm run test"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "istanbul": "^0.2.7",
     "jshint": "^2.5.0",
     "jscs": "1.4.5",
+    "pre-commit": "^1.2.2",
     "should": "^4.0.0",
     "nock": "^0.32.3"
   }
