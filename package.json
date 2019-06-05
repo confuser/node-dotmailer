@@ -1,11 +1,21 @@
 {
   "name": "dotmailer",
   "description": "A 3rd party dotMailer v2 REST API implementation",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
   "author": "James Mortemore <jamesmortemore@gmail.com>",
+  "contributors": [
+    {
+      "name": "John Field",
+      "url": "https://johnfield.github.io/"
+    },
+    {
+      "name": "Ian Crowther",
+      "url": "https://iancrowther.co.uk/"
+    }
+  ],
   "license": "ISC",
   "scripts": {
     "test": "standard && nyc mocha"
