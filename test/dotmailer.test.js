@@ -1,9 +1,6 @@
 const nock = require('nock')
 const assert = require('assert')
-const config =
-  { auth:
-    { user: '', pass: '' }
-  }
+const config = { auth: { user: '', pass: '' } }
 const dotMailer = require('../')(config)
 
 describe('dotmailer', function () {
@@ -13,19 +10,29 @@ describe('dotmailer', function () {
       .post('/v2/contacts/transactional-data/123456')
       .reply(204)
 
-    dotMailer('PostContactsTransactionalData', 123456, function (error, res) {
-      assert.strictEqual(error, undefined)
-      assert.strictEqual(res, undefined)
+    dotMailer({
+      endpoint: 'PostContactsTransactionalData',
+      tokens: [123456],
+      config: {type: 'json', options: {}},
+      cb: (error, res) => {
+        assert.strictEqual(error, undefined)
+        assert.strictEqual(res, undefined)
 
-      done()
+        done()
+      }
     })
   })
 
   it('should return an error if required tokens not passed', function (done) {
-    dotMailer('PostContactsTransactionalData', function (error) {
-      assert.strictEqual(error.message, 'Unreplaced tokens')
+    dotMailer({
+      endpoint: 'PostContactsTransactionalData',
+      tokens: [],
+      config: {type: 'json', options: {}},
+      cb: (error, res) => {
+        assert.strictEqual(error.message, 'Unreplaced tokens')
 
-      done()
+        done()
+      }
     })
   })
 })

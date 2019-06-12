@@ -10,7 +10,7 @@ describe('Prepare Request', function () {
   })
 
   it('should replace tokens within the path based on arguments', function () {
-    const preparedReq = prepareRequest('PUT', 'hello/{foo}/{bar}/world', 'hello', 'tokens', 'here')
+    const preparedReq = prepareRequest('PUT', 'hello/{foo}/{bar}/world', ['hello', 'tokens', 'here'])
 
     assert.strictEqual(preparedReq.method, 'PUT')
     assert.strictEqual(preparedReq.url, 'hello/hello/tokens/world')
@@ -25,7 +25,7 @@ describe('Prepare Request', function () {
   })
 
   it('should accept falsy tokens', function () {
-    const preparedReq = prepareRequest('GET', 'hello/{foo}/world', 0)
+    const preparedReq = prepareRequest('GET', 'hello/{foo}/world', [0])
 
     assert.strictEqual(preparedReq.url, 'hello/0/world')
   })
