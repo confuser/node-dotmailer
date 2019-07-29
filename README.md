@@ -12,15 +12,27 @@ npm install dotmailer --save
 ```
 
 ## Usage
-```dotMailer(ApiFunction, tokens..., dataObject, callback)```
+```dotMailer({endpoint, tokens, config, cb})```
+  
+- (Required) endpoint (String) - Function name, e.g. 'PostAddressBooks'
+- (Optional) tokens (Array) - Query parameters that are passed as additional function arguments, can be String or Number, e.g. 123456  
+- (Required) config (Object) - Request type & options. 
 
-- (Required) String ApiFunction - Function name, e.g. 'PostAddressBooks'
-- (Optional) tokens - Query parameters that are passed as additional function arguments, can be String or Number, e.g. 123456
-- (Optional) Object dataObject - Request body e.g. ```js { Name: 'Test Address Book', Visibility: 'Private' }```
-- (Required) function callback(error, response) - Executed on completion
+```
+  Example:
 
+  {
+    type: 'json',
+    options: {
+      Name: 'Test Address Book', 
+      Visibility: 'Private'
+    }
+  }
+```
 
-Tokens and dataObject may be required depending on the ApiFunction. Required tokens that are not used will throw an error.
+- (Required) cb (Function) - (error, response) Executed on completion
+
+Tokens may be required depending on the endpoint. Required tokens that are not used will throw an error.
 
 Some requests return 204 meaning response within the callback will be undefined if successful.
 
@@ -39,9 +51,16 @@ var config =
   , dotmailer = require('dotmailer')(config)
   , addressBookId = 123456
 
-dotmailer('DeleteAddressBookContacts', addressBookId, function (error, res) {
-  console.log(error, res)
-})
+dotmailer({
+  endpoint: 'DeleteAddressBookContacts',
+  tokens: [addressBookId],
+  config: {
+    type: 'json',
+    options: {}
+  }
+  cb: (error, res) => {
+    console.log(error, res)
+  })
 ```
 
 ## Tests
@@ -51,8 +70,12 @@ This test will create, update & delete an address book named 'Test Address Book'
 
 To run:
 ```
-USER=username@apiconnector.com PASS=pass mocha test/integration/dotmailer.integration.test.js
+USER=username@apiconnector.com 
+PASS=pass 
+
+$ mocha test/integration/dotmailer.integration.test.js
 ```
 
 ## Credits
-[James Mortemore](https://github.com/confuser/)
+- [James Mortemore](https://github.com/confuser/)
+- [Ian Crowther](https://github.com/iancrowther/)
