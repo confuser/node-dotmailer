@@ -14,6 +14,7 @@ module.exports = function (options) {
 
   return function send ({endpoint, tokens, config, cb}) {
     const _config = configFactory(config)
+    const _tokens = tokens || []
 
     if (typeof cb !== 'function') throw new Error('Invalid callback, must be a function')
     if (!endPoints[endpoint]) throw new Error('Unknown API endpoint')
@@ -21,7 +22,7 @@ module.exports = function (options) {
     let preparedRequest
 
     try {
-      preparedRequest = Object.assign({}, _options, endPoints[endpoint].apply(null, [tokens, _config]))
+      preparedRequest = Object.assign({}, _options, endPoints[endpoint].apply(null, [_tokens, _config]))
     } catch (e) {
       return cb(e)
     }
