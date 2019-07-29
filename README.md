@@ -78,4 +78,5 @@ $ mocha test/integration/dotmailer.integration.test.js
 
 ## Credits
 - [James Mortemore](https://github.com/confuser/)
+- [John Field](https://johnfield.github.io/)
 - [Ian Crowther](https://github.com/iancrowther/)
