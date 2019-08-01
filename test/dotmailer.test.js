@@ -15,7 +15,7 @@ describe('dotmailer', function () {
       endpoint: 'PostContactsTransactionalData',
       tokens: [123456],
       config: {type: 'json', options: {}},
-      cb: (error, res) => {
+      callback: (error, res) => {
         assert.strictEqual(error, undefined)
         assert.strictEqual(res, undefined)
 
@@ -29,7 +29,7 @@ describe('dotmailer', function () {
       endpoint: 'PostContactsTransactionalData',
       tokens: [],
       config: {type: 'json', options: {}},
-      cb: (error, res) => {
+      callback: (error, res) => {
         assert.strictEqual(error.message, 'Unreplaced tokens')
 
         done()
@@ -58,7 +58,7 @@ describe('dotmailer', function () {
       endpoint: 'PostAddressBookContactsImport',
       tokens: [1234],
       config: {type: 'formData', options},
-      cb: (error, res) => {
+      callback: (error, res) => {
         assert.strictEqual(error, undefined)
         assert.strictEqual(res, undefined)
 
