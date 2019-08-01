@@ -12,7 +12,7 @@ npm install dotmailer --save
 ```
 
 ## Usage
-```dotMailer({endpoint, tokens, config, cb})```
+```dotMailer({endpoint, tokens, config, callback})```
   
 - (Required) endpoint (String) - Function name, e.g. 'PostAddressBooks'
 - (Optional) tokens (Array) - Query parameters that are passed as additional function arguments, can be String or Number, e.g. 123456  
@@ -30,7 +30,7 @@ npm install dotmailer --save
   }
 ```
 
-- (Required) cb (Function) - (error, response) Executed on completion
+- (Required) callback (Function) - (error, response) Executed on completion
 
 Tokens may be required depending on the endpoint. Required tokens that are not used will throw an error.
 
@@ -58,7 +58,7 @@ dotmailer({
     type: 'json',
     options: {}
   }
-  cb: (error, res) => {
+  callback: (error, res) => {
     console.log(error, res)
   })
 ```
