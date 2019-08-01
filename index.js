@@ -12,10 +12,10 @@ module.exports = function (options) {
     else return Object.setPrototypeOf(options, { isJson: true })
   }
 
-  return function send ({endpoint, tokens = [], config, cb}) {
+  return function send ({endpoint, tokens = [], config, callback}) {
     const _config = configFactory(config)
 
-    if (typeof cb !== 'function') throw new Error('Invalid callback, must be a function')
+    if (typeof callback !== 'function') throw new Error('Invalid callback, must be a function')
     if (!endPoints[endpoint]) throw new Error('Unknown API endpoint')
 
     let preparedRequest
@@ -23,9 +23,9 @@ module.exports = function (options) {
     try {
       preparedRequest = Object.assign({}, _options, endPoints[endpoint].apply(null, [tokens, _config]))
     } catch (e) {
-      return cb(e)
+      return callback(e)
     }
 
-    request(preparedRequest, handleRequest(cb))
+    request(preparedRequest, handleRequest(callback))
   }
 }
